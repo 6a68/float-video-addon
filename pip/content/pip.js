@@ -112,10 +112,10 @@ com.taboca.pip = {
   Pop_ElementSniffer:  function (elem) {
 
   if(elem instanceof Components.interfaces.nsIDOMHTMLEmbedElement) {
-    var embedBox = gBrowser.selectedBrowser.contentDocument.getBoxObjectFor(elem);
+    var embedBox = elem.getBoundingClientRect();
 
-    com.taboca.pip.gPop_x = embedBox.x;
-    com.taboca.pip.gPop_y = embedBox.y;
+    com.taboca.pip.gPop_x = embedBox.left;
+    com.taboca.pip.gPop_y = embedBox.top;
     com.taboca.pip.gPop_width  = embedBox.width;
     com.taboca.pip.gPop_height = embedBox.height;
 
