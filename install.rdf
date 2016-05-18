@@ -5,7 +5,7 @@
   <RDF:Description RDF:about="urn:mozilla:install-manifest"
                    em:id="pip@mozilla.com"
                    em:name="pip"
-                   em:version="0.8"
+                   em:version="1.0"
                    em:description="Watch Videos and more across tabs"
                    em:creator="Marcio Galli"
                    em:homepageURL="http://www.taboca.com/projects/pip"
