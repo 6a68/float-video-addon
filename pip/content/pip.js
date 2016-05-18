@@ -50,26 +50,26 @@ com.taboca.pip = {
         var psvc = Components.classes["@mozilla.org/preferences-service;1"]
                          .getService(Components.interfaces.nsIPrefBranch);
         this.gPop_defaultWidth = parseInt (psvc.getCharPref("pip.default_width")) ;
-	if ( this.gPop_defaultWidth > 1 ) {
-	}  else {
-		this.gPop_defaultWidth=120;
-	}
+  if ( this.gPop_defaultWidth > 1 ) {
+  }  else {
+    this.gPop_defaultWidth=120;
+  }
     } catch (i) { }
    },
 
    pip_backToVideo: function () {
-	gBrowser.selectedTab = this.pip_videoTab;
+  gBrowser.selectedTab = this.pip_videoTab;
    },
 
    pip_bringBack: function () {
-	if (this.pip_active) { 
-		document.getElementById("pippanel").openPopup(document.getElementById("pipmenu"),"before_end", -1,-1,false);
-	} 
+  if (this.pip_active) { 
+    document.getElementById("pippanel").openPopup(document.getElementById("pipmenu"),"before_end", -1,-1,false);
+  } 
    },
 
    pip_launchPanel: function () {
- 	try { 
-          if(!this.pip_active) { 	
+  try { 
+          if(!this.pip_active) {  
              this.pip_getWidthPref();
              document.getElementById("pippanel").openPopup(document.getElementById("pipmenu"),"before_end", -1,-1,false);
              this.pip_canvasRefId="pipcanvas";
@@ -79,21 +79,21 @@ com.taboca.pip = {
          } else { 
              this.pip_active=false;
              document.getElementById("pippanel").hidePopup();
-	 }
-	} catch(i) { alert(i) } 
+   }
+  } catch(i) { alert(i) } 
    },
 
    runPopcanvas:  function () {
     try { 
-	var currentDoc = gBrowser.selectedBrowser.contentDocument;
-	this.pip_videoTab = gBrowser.selectedTab; 
+  var currentDoc = gBrowser.selectedBrowser.contentDocument;
+  this.pip_videoTab = gBrowser.selectedTab; 
 
         var stampedThis = this; 
 
         var stampedPopSniffer = com.taboca.pip.Pop_ElementSniffer; 
 
-	var iterator = currentDoc.createTreeWalker( currentDoc, NodeFilter.SHOW_ELEMENT,  stampedPopSniffer  , true ) ;
-	setTimeout( function (i) { stampedThis.Pop_Iterator(i) }  , 20, iterator); 
+  var iterator = currentDoc.createTreeWalker( currentDoc, NodeFilter.SHOW_ELEMENT,  stampedPopSniffer  , true ) ;
+  setTimeout( function (i) { stampedThis.Pop_Iterator(i) }  , 20, iterator); 
 
     } catch(i) { alert(i) } 
    },
@@ -102,7 +102,7 @@ com.taboca.pip = {
 
       for(var i=0; i < 50; i++) { 
          if(!iterator.nextNode()) {
-            return;		
+            return;   
          }
       } 
       var stampedThis = this; 
@@ -111,26 +111,26 @@ com.taboca.pip = {
 
   Pop_ElementSniffer:  function (elem) {
 
-	if(elem instanceof Components.interfaces.nsIDOMHTMLEmbedElement) {
-		var embedBox = gBrowser.selectedBrowser.contentDocument.getBoxObjectFor(elem);
+  if(elem instanceof Components.interfaces.nsIDOMHTMLEmbedElement) {
+    var embedBox = gBrowser.selectedBrowser.contentDocument.getBoxObjectFor(elem);
 
-		com.taboca.pip.gPop_x = embedBox.x;
-		com.taboca.pip.gPop_y = embedBox.y;
-		com.taboca.pip.gPop_width  = embedBox.width;
-		com.taboca.pip.gPop_height = embedBox.height;
+    com.taboca.pip.gPop_x = embedBox.x;
+    com.taboca.pip.gPop_y = embedBox.y;
+    com.taboca.pip.gPop_width  = embedBox.width;
+    com.taboca.pip.gPop_height = embedBox.height;
 
-		if(com.taboca.pip.gPop_x >=0 && com.taboca.pip.gPop_y >= 0 && com.taboca.pip.gPop_width >50 ) { 
-			if(elem.getAttribute("wmode")!="transparent") {
-				var parentEmbed = elem.parentNode;
-				elem.setAttribute("wmode","transparent");
-				var elem_brother = elem.cloneNode(true);
-				parentEmbed.replaceChild(elem_brother,elem);
-			}
-			com.taboca.pip.gPop_videoWindow =  gBrowser.selectedBrowser.contentWindow;
-			com.taboca.pip.Pop_VideoEnable();
-		}
-	}
- 	return NodeFilter.FILTER_ACCEPT; 
+    if(com.taboca.pip.gPop_x >=0 && com.taboca.pip.gPop_y >= 0 && com.taboca.pip.gPop_width >50 ) { 
+      if(elem.getAttribute("wmode")!="transparent") {
+        var parentEmbed = elem.parentNode;
+        elem.setAttribute("wmode","transparent");
+        var elem_brother = elem.cloneNode(true);
+        parentEmbed.replaceChild(elem_brother,elem);
+      }
+      com.taboca.pip.gPop_videoWindow =  gBrowser.selectedBrowser.contentWindow;
+      com.taboca.pip.Pop_VideoEnable();
+    }
+  }
+  return NodeFilter.FILTER_ACCEPT; 
    },
 
    TellDocument: function ( clientDocument ) { 
@@ -180,7 +180,7 @@ com.taboca.pip = {
          function testContentType(types){
                 var isMediaFile = false;
                 for(var i=types.length;i>=0;i--){
-         		if(contentType.indexOf(types[i])>-1 || mediaLocation.indexOf('.'+types[i])>-1) isMediaFile = true;
+            if(contentType.indexOf(types[i])>-1 || mediaLocation.indexOf('.'+types[i])>-1) isMediaFile = true;
                 }
                 return isMediaFile;
          }
