@@ -1,0 +1,18 @@
+
+#pipcanvas {
+
+	background:url("chrome://pip/skin/lines.png");
+
+}
+
+label {
+
+
+}
+
+
+#pipmenu { 
+
+    list-style-image  : url("chrome://pip/skin/icon_video.png");
+
+}

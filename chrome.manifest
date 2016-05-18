@@ -1,0 +1,6 @@
+content pip pip/content/
+overlay chrome://browser/content/browser.xul chrome://pip/content/overlay.xul
+locale	pip	en-US pip/locale/en-US/
+
+skin    pip   classic/1.0     pip/skin/
+

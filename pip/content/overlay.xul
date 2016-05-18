@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+<!DOCTYPE prefwindow [
+  <!ENTITY % pipDTD SYSTEM "chrome://pip/locale/pip.dtd" >
+  %pipDTD;
+]>
+
+<?xml-stylesheet href="chrome://pip/skin/pip.css" type="text/css"?>
+<?xml-stylesheet href="chrome://pip/content/bindings/ppanel.css" type="text/css"?> 
+
+<overlay id="piptasksOverlay"
+  xmlns:html="http://www.w3.org/1999/xhtml"
+  xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+
+  <!-- For JS here -->
+
+  <script type="application/x-javascript" src="chrome://pip/content/pip.js"/>
+
+<statusbar id="status-bar">
+  <toolbarbutton tooltiptext="&pip.buttonguide.tooltip;" id="pipmenu" insertbefore="status-bar" onclick="com.taboca.pip.pip_launchPanel()" />
+</statusbar>
+
+<popupset id="mainPopupSet">
+
+<ppanel2 id="pippanel3" >
+</ppanel2>
+
+<panel id="pippanel" noautohide="true" noautofocus="true" onpopuphidden="com.taboca.pip.pip_bringBack()"  onclick="com.taboca.pip.pip_backToVideo()" >
+    <html:canvas id="pipcanvas" width="120" height="99" style="border:3px solid black;" />
+</panel>
+
+</popupset>
+
+   <!-- toolbar overlay -->
+
+   <toolbarpalette id="BrowserToolbarPalette">
+
+     <toolbarbutton id="pip-button-up" tooltiptext="Up"  
+                  style="list-style-image:url(chrome://pip/skin/icon_video.png) ! important" onclick="com.taboca.pip.pip_launchPanel()"  
+                    label="Up">
+     </toolbarbutton>
+
+   </toolbarpalette>
+  
+</overlay>
